@@ -14,8 +14,8 @@
 
                 <!-- Breadcrumb -->
                 @await Html.PartialAsync("_BreadcrumbPartial", new[]
-                         {
-                "Manager", @ViewData["List"], null
+                {
+                    "Manager", @ViewData["List"], null
                 })
                 <br />
 
@@ -96,12 +96,13 @@
                                 <td>@item.City</td>
                                 <td style="text-align:center">
                                     <button class="btn btn-outline-primary button"
-                                        onclick="location.href='@Url.Action("edit", new {id = item.Id, imageName = item.ImageName})'">
+                                            onclick="location.href='@Url.Action("edit", new {id = item.Id, imageName = item.ImageName})'">
                                         edit
                                     </button>
-                                    <button class="btn btn-outline-danger button" onclick="showConfirmationDialog(event,
-                                     'Are you sure you want to delete this employee ?',
-                                    '@Url.Action("DeleteEmployee", new {id = item.Id})')">
+                                    <button class="btn btn-outline-danger button"
+                                            onclick="showConfirmationDialog(event,
+                                            'Are you sure you want to delete this employee ?',
+                                            '@Url.Action("DeleteEmployee", new {id = item.Id})')">
                                         delete
                                     </button>
                                 </td>

@@ -51,7 +51,7 @@ public class PaymentSlipService : IPaymentSlipService
         return Task.FromResult((overtimeEarnings + contractualEarnings));
     }
 
-    public Task<decimal> GetNetPaymentAsync(decimal totalEarnings, decimal totalDeduction)
+    public Task<decimal> GetNetPayment(decimal totalEarnings, decimal totalDeduction)
     {
         return Task.FromResult(totalEarnings - totalDeduction);
     }

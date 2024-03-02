@@ -6,5 +6,5 @@ public interface IDeductionService
 
     Task<decimal> GetUnionFree(bool unionMemberStatus);
 
-    Task<decimal> GetTotalDeductionAsync(decimal unionFree, decimal tax);
+    Task<decimal> GetTotalDeduction(decimal unionFree, decimal tax);
 }

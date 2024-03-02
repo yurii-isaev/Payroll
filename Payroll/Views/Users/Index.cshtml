@@ -55,16 +55,19 @@
                                     <td>@item.Created.ToString("dd.MM.yyyy")</td>
                                     <td>@item.LockoutEnd?.ToString("dd.MM.yyyy HH:mm")</td>
                                     <td>
-                                        <a class="btn btn-outline-primary button" value="@item.Id" asp-action="BlockUser"
-                                            asp-route-id="@item.Id">
+                                        <a class="btn btn-outline-primary button"
+                                           value="@item.Id" asp-action="BlockUser"
+                                           asp-route-id="@item.Id">
                                             block
                                         </a>
-                                        <a class="btn btn-outline-danger button" value="@item.Id" asp-action="UnBlockUser"
-                                            asp-route-id="@item.Id">
+                                        <a class="btn btn-outline-danger button"
+                                           value="@item.Id" asp-action="UnBlockUser"
+                                           asp-route-id="@item.Id">
                                             unblock
                                         </a>
-                                        <a class="btn btn-outline-info button" value="@item.Id" asp-action="EditUser"
-                                            asp-route-id="@item.Id">
+                                        <a class="btn btn-outline-info button"
+                                           value="@item.Id" asp-action="EditUser"
+                                           asp-route-id="@item.Id">
                                             edit
                                         </a>
                                     </td>

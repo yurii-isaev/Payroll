@@ -1,0 +1,159 @@
+@model Payroll.Controllers.ViewModels.PaymentRecordViewModel
+
+@{
+    ViewData["List"] = "Payment Record List";
+    ViewData["Title"] = "Pay Computation Detail";
+}
+
+@* <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" /> *@
+
+<div class="col-md-12 ">
+    <div class="card">
+        <div class="card-body">
+
+            <!-- Breadcrumb -->
+            @await Html.PartialAsync("_BreadcrumbPartial", new[]
+            {
+                "Manager", @ViewData["List"], @ViewData["Title"]
+            })
+
+            <div class="row">
+                <div class="col-md-12" style="padding-top:30px">
+                    <div class="text-md-end">
+                        <a class="btn btn-outline-primary rounded-pill" role="button"
+                           href='@Url.Action("GenerateInvoicePdf", new {PaymentRecordId = @Model.Id})'>
+                            Generate Invoice PDF
+                        </a>
+                    </div>
+                </div>
+            </div> <br/>
+
+            <form>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Id">Payment ID</label>
+                        <input asp-for="Id" class="form-control" readonly/>
+                    </div> <br/>
+
+                    <div class="form-group col-md-6">
+                        <label asp-for="Employee"></label>
+                        <input asp-for="Employee!.Name" class="form-control" readonly/>
+                    </div> <br/>
+                </div> <br/>
+
+                <h3>Date and Hours</h3> <hr style="background-color:crimson"/>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="PayMonth"></label>
+                        <input asp-for="PayMonth" class="form-control" readonly/>
+                    </div> <br/>
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="TaxYear"></label>
+                        <input asp-for="TaxYear!.YearOfTax" class="form-control" readonly/>
+                    </div> <br/>
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="PayDate"></label>
+                        <input asp-for="PayDate"
+                               value="@Model.PayDate.ToString("yyyy-MM-dd HH:mm")"
+                               class="form-control" readonly/>
+                    </div> <br/>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="HourlyRate"></label>
+                        <input asp-for="HourlyRate" class="form-control" readonly/>
+                    </div> <br/>
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="HoursWorked"></label>
+                        <input asp-for="HoursWorked" class="form-control" readonly/>
+                    </div> <br/>
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="ContractualHours"></label>
+                        <input asp-for="ContractualHours" class="form-control" readonly/>
+                    </div> <br/>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="OvertimeHours"></label>
+                        <input asp-for="OvertimeHours" class="form-control" readonly/>
+                    </div> <br/>
+                    
+                    <div class="form-group col-md-4">
+                        <label asp-for="OvertimeRate"></label>
+                        <input asp-for="OvertimeRate" class="form-control" readonly/>
+                    </div> <br/>
+                </div> <br/>
+
+                <h3>Deductions</h3> <hr style="background-color:crimson"/>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="TaxCode"></label>
+                        <input asp-for="TaxCode" class="form-control" readonly/>
+                    </div> <br/>
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="Tax"></label>
+                        <input asp-for="Tax" class="form-control" readonly/>
+                    </div> <br/>
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="UnionFree"></label>
+                        <input asp-for="UnionFree" class="form-control" readonly/>
+                    </div> <br/>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="TotalDeduction" class="color"></label>
+                        <input asp-for="TotalDeduction" class="form-control" readonly/>
+                    </div> <br/>
+                </div> <br/>
+
+                <h3>Earnings</h3> <hr style="background-color:crimson"/>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="ContractualEarnings"></label>
+                        <input asp-for="ContractualEarnings" class="form-control" readonly/>
+                    </div> <br/>
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="OvertimeEarnings"></label>
+                        <input asp-for="OvertimeEarnings" class="form-control" readonly/>
+                    </div> <br/>
+
+                    <div class="form-group col-md-4">
+                        <label asp-for="TotalEarnings"></label>
+                        <input asp-for="TotalEarnings" class="form-control" readonly/>
+                    </div> <br/>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label asp-for="NetPayment" class="color"></label>
+                            <input asp-for="NetPayment" class="form-control" readonly/>
+                        </div> <br/>
+                    </div>
+                </div> <br/> <br/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-group {
+        margin-top: 20px !important;
+    }
+    
+    .color {
+        color:crimson;
+        font-weight:bold;
+    }
+</style>

@@ -1,12 +1,11 @@
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
 using Payroll.Domains.Entities;
 
 namespace Payroll.Controllers.ViewModels;
 
 public class PaymentRecordViewModel
 {
-    [HiddenInput(DisplayValue = false)]
+    // [HiddenInput(DisplayValue = true)]
     public Guid Id { get; set; }
 
     [
@@ -52,16 +51,24 @@ public class PaymentRecordViewModel
     ]
     public decimal HoursWorked { get; set; }
 
-    public decimal ContractualHours { get; set; } = 35;
+    [Display(Name = "Contractual Hours")]
+    public decimal ContractualHours { get; set; }
 
+    [Display(Name = "Overtime Hours")]
     public decimal OvertimeHours { get; set; }
+    
+    [Display(Name = "Overtime Rate")]
+    public decimal OvertimeRate { get; set; }
 
+    [Display(Name = "Contractual Earnings")]
     public decimal ContractualEarnings { get; set; }
 
+    [Display(Name = "Overtime Earnings")]
     public decimal OvertimeEarnings { get; set; }
 
     public decimal Tax { get; set; }
 
+    [Display(Name = "Union Free")]
     public decimal UnionFree { get; set; }
 
     [Display(Name = "Total Earnings")]

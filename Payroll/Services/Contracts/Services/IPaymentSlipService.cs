@@ -12,5 +12,5 @@ public interface IPaymentSlipService
     
     Task<decimal> GetTotalEarning(decimal overtimeEarnings, decimal contractualEarnings);
 
-    Task<decimal> GetNetPaymentAsync(decimal totalEarnings, decimal totalDeduction);
+    Task<decimal> GetNetPayment(decimal totalEarnings, decimal totalDeduction);
 }

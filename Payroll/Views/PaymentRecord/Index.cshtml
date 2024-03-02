@@ -80,13 +80,19 @@
                                 <td>@item.NetPayment.ToString("C")</td>
                                 <td>
                                     <a class="btn btn-outline-primary button"
+                                       value="@item.Id" asp-action="DetailPaymentRecord"
+                                       asp-route-id="@item.Id">
+                                        detail
+                                    </a>
+                                    
+                                    <a class="btn btn-outline-primary button"
                                        href='@Url.Action("GenerateInvoicePdf", new {PaymentRecordId = item.Id})'>
                                         pdf
                                     </a>
                                     <button class="btn btn-outline-danger button"
                                             onclick="showConfirmationDialog(event,
-                                    'Are you sure you want to delete this Record?',
-                                    '@Url.Action("DeletePaymentRecord", new {id = item.Id})')">
+                                            'Are you sure you want to delete this Record?',
+                                            '@Url.Action("DeletePaymentRecord", new {id = item.Id})')">
                                         delete
                                     </button>
                                 </td>
@@ -111,6 +117,7 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
+        /*padding: 0 0 !important;*/
     }
 
     th,

@@ -1,6 +1,5 @@
 using AutoMapper;
 using Payroll.Domains.Entities;
-using Payroll.Domains.Enums;
 using Payroll.Services.Contracts;
 using Payroll.Services.Contracts.Services;
 using Payroll.Services.Exceptions;
@@ -66,7 +65,7 @@ public class EmployeeService : IEmployeeService
         var filePath = Path.Combine(_environment.WebRootPath, UploadDir, filename);
         var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
         var fileInfo = new FileInfo(filePath);
-        
+
         employeeDto.FormFile = new FormFile(
             fileStream,
             0,
@@ -74,7 +73,7 @@ public class EmployeeService : IEmployeeService
             "FormFile",
             Path.GetFileName(fileInfo.Name)
         );
-        
+
         employeeDto.ImageName = $"/{UploadDir}{filename}";
         return Task.CompletedTask;
     }

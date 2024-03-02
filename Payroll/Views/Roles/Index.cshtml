@@ -11,10 +11,10 @@
 
                 <!-- Breadcrumb -->
                 @await Html.PartialAsync("_BreadcrumbPartial", new[]
-                         {
-                "Admin", @ViewData["Title"], null
+                {
+                    "Admin", @ViewData["Title"], null
                 })
-                <br />
+                <br/>
 
                 <!-- Title -->
                 <div class="row">
@@ -39,30 +39,31 @@
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Actions</th>
-                        </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Actions</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>@item.Id</td>
-                                <td>@item.Name</td>
-                                <td>
-                                    <a class="btn btn-outline-primary button" asp-action="EditRole" asp-route-id="@item.Id">
-                                        edit
-                                    </a>
-                                    <button class="btn btn-outline-danger button" onclick="showConfirmationDialog(event,
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>
+                                <a class="btn btn-outline-primary button"
+                                   asp-action="EditRole" asp-route-id="@item.Id">
+                                    edit
+                                </a>
+                                <button class="btn btn-outline-danger button" onclick="showConfirmationDialog(event,
                                         'Are you sure you want to delete this news?',
                                         '@Url.Action("DeleteRole", new {id = @item.Id})')">
-                                        delete
-                                    </button>
-                                </td>
-                            </tr>
-                        }
+                                    delete
+                                </button>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                     <tfoot></tfoot>
                 </table>
